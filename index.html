@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital CV - Tech Builder & Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="grid-overlay"></div>
+        <canvas id="particles"></canvas>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">Developer</span>
+                <span class="logo-bracket">/&gt;</span>
+            </div>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#tech" class="nav-link">Tech Stack</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="status-dot"></span>
+                    Available for Projects
+                </div>
+                <h1 class="hero-title">
+                    About Me
+                    <span class="gradient-text">Reece Till</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Python & React Developer | Pretoria, South Africa
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// What I Do</span>
+                <h2 class="section-title">About</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I build stuff with <strong>Python</strong> and <strong>React</strong>. I started out learning the
+                        basics from a mentor for a few months, focused on coding <strong>cryptocurrency spot trading
+                            bots in terminal</strong>—old school, using <strong>nano</strong> only. Getting the hang of
+                        servers, terminal, and how to code the hard way.
+                    </p>
+
+                    <p>Right as I was getting into it, AI tools started coming out. That's when it all made more sense
+                        and I grew my skills way faster. I was using AI in VS Code before it was
+                        even a standard thing. When <strong>Windsurf</strong> came out, I jumped on it early.</p>
+
+                    <p>I still know the "old school" basics like <strong>SSH</strong>, <strong>Root</strong>,
+                        <strong>SCP</strong>, and terminal, but I use AI to move way faster. I've built a lot of
+                        production-level projects. Not all of them are still running today, but building them gave me a
+                        full understanding of how every part of the system works together.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Production Projects</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Server Management</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">AI-Enhanced Workflow</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="section section-dark" id="tech">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// My Arsenal</span>
+                <h2 class="section-title">Tech I Use Daily</h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <div class="tech-category-icon">💻</div>
+                    <h3 class="tech-category-title">Code</h3>
+                    <ul class="tech-list">
+                        <li><span class="tech-dot"></span>Python</li>
+                        <li><span class="tech-dot"></span>React</li>
+                        <li><span class="tech-dot"></span>Bash (terminal work)</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <div class="tech-category-icon">🖥️</div>
+                    <h3 class="tech-category-title">Servers</h3>
+                    <ul class="tech-list">
+                        <li><span class="tech-dot"></span>DigitalOcean Droplets</li>
+                        <li><span class="tech-dot"></span>Nginx</li>
+                        <li><span class="tech-dot"></span>Systemd</li>
+                        <li><span class="tech-dot"></span>Cron jobs</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <div class="tech-category-icon">🤖</div>
+                    <h3 class="tech-category-title">AI & API</h3>
+                    <ul class="tech-list">
+                        <li><span class="tech-dot"></span>Windsurf (early adopter)</li>
+                        <li><span class="tech-dot"></span>VAPI & Twilio (voice AI)</li>
+                        <li><span class="tech-dot"></span>Telegram bots</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <div class="tech-category-icon">💰</div>
+                    <h3 class="tech-category-title">Finance</h3>
+                    <ul class="tech-list">
+                        <li><span class="tech-dot"></span>VALR API</li>
+                        <li><span class="tech-dot"></span>Binance API</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// What I've Built</span>
+                <h2 class="section-title">Projects</h2>
+            </div>
+
+            <div class="projects-grid">
+                <!-- King Kong Digital -->
+                <div class="project-card featured">
+                    <div class="project-header">
+                        <h3 class="project-title">King Kong Digital</h3>
+                        <span class="project-badge">Featured</span>
+                    </div>
+                    <p class="project-description">
+                        Built a system with a partner that could deploy a huge amount of websites automatically. Managed
+                        everything through the terminal on servers across Amsterdam and New York. Set up AI outbound
+                        calling and Telegram bots to handle the leads.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Server Management</span>
+                        <span class="tag">AI Voice</span>
+                        <span class="tag">Telegram Bots</span>
+                    </div>
+                </div>
+
+                <!-- Trading Bots -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Trading Bots</h3>
+                    </div>
+                    <p class="project-description">
+                        Built bots for Spot, Futures, and DCA (Dollar Cost Averaging) using exchange APIs.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">VALR API</span>
+                        <span class="tag">Binance API</span>
+                    </div>
+                </div>
+
+                <!-- Portfolio Tracker -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Portfolio Tracker</h3>
+                    </div>
+                    <p class="project-description">
+                        Made a system to track live crypto and equity data. It calculates real-time PNL and uses
+                        Weighted Average Cost (WAC) to show exactly where the money is.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Real-time Data</span>
+                        <span class="tag">Analytics</span>
+                    </div>
+                </div>
+
+                <!-- MyFinancePro -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">MyFinancePro</h3>
+                    </div>
+                    <p class="project-description">
+                        A web app I built to keep track of my own financial data and analytics.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Analytics</span>
+                    </div>
+                </div>
+
+                <!-- Discover -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">Discover</h3>
+                    </div>
+                    <p class="project-description">
+                        A management app and SaaS for the music industry.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">SaaS</span>
+                        <span class="tag">Music Industry</span>
+                    </div>
+                </div>
+
+                <!-- btcnews.co.za -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">btcnews.co.za</h3>
+                    </div>
+                    <p class="project-description">
+                        A news site I built for the local crypto market.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">News Platform</span>
+                        <span class="tag">Crypto</span>
+                    </div>
+                </div>
+
+                <!-- BigBluff -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 class="project-title">BigBluff</h3>
+                    </div>
+                    <p class="project-description">
+                        A private site I built with its own backend logic and member area.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Backend</span>
+                        <span class="tag">Member Portal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Business Section -->
+    <section class="section section-dark" id="business">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// Personal Venture</span>
+                <h2 class="section-title">ON-SET Studios</h2>
+            </div>
+            <div class="business-content">
+                <p class="business-description">
+                    This is my recording studio and the base for my music career as <strong>Mr. Mystery</strong>. I run
+                    the business and handle all the production.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// Get In Touch</span>
+                <h2 class="section-title">Let's Build Something</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <div class="contact-label">Location</div>
+                            <div class="contact-value">Pretoria, South Africa</div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div class="contact-text">
+                            <div class="contact-label">Status</div>
+                            <div class="contact-value">Available for Projects</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Digital CV. Built with passion and code.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
