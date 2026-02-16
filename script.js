@@ -15,7 +15,7 @@ let mouse = {
     radius: 150
 };
 
-window.addEventListener('mousemove', function(event) {
+window.addEventListener('mousemove', function (event) {
     mouse.x = event.x;
     mouse.y = event.y;
 });
@@ -50,7 +50,7 @@ class Particle {
         let dx = mouse.x - this.x;
         let dy = mouse.y - this.y;
         let distance = Math.sqrt(dx * dx + dy * dy);
-        
+
         if (distance < mouse.radius + this.size) {
             if (mouse.x < this.x && this.x < canvas.width - this.size * 10) {
                 this.x += 2;
@@ -93,8 +93,8 @@ function connect() {
     for (let a = 0; a < particlesArray.length; a++) {
         for (let b = a; b < particlesArray.length; b++) {
             let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
-            + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-            
+                + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+
             if (distance < (canvas.width / 7) * (canvas.height / 7)) {
                 opacityValue = 1 - (distance / 20000);
                 ctx.strokeStyle = 'rgba(99, 102, 241,' + opacityValue + ')';
@@ -120,7 +120,7 @@ function animate() {
 }
 
 // Resize event
-window.addEventListener('resize', function() {
+window.addEventListener('resize', function () {
     canvas.width = innerWidth;
     canvas.height = innerHeight;
     mouse.radius = 150;
@@ -128,7 +128,7 @@ window.addEventListener('resize', function() {
 });
 
 // Mouse out event
-window.addEventListener('mouseout', function() {
+window.addEventListener('mouseout', function () {
     mouse.x = undefined;
     mouse.y = undefined;
 });
@@ -136,6 +136,31 @@ window.addEventListener('mouseout', function() {
 // Initialize and start animation
 init();
 animate();
+
+// Hamburger Menu Toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    }
+});
 
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -157,7 +182,7 @@ const observerOptions = {
     rootMargin: '0px 0px -100px 0px'
 };
 
-const observer = new IntersectionObserver(function(entries) {
+const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -194,7 +219,7 @@ document.querySelectorAll('.tech-category').forEach((category, index) => {
 window.addEventListener('scroll', () => {
     let current = '';
     const sections = document.querySelectorAll('.section, .hero');
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
@@ -203,10 +228,82 @@ window.addEventListener('scroll', () => {
         }
     });
 
+
     document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
             link.classList.add('active');
+        }
+    });
+});
+
+// Password Protection for Personal Story
+const PASSWORD = 'Access1'; // Change this to your desired password
+const SESSION_KEY = 'personalStoryUnlocked';
+
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('password-modal');
+    const passwordInput = document.getElementById('password-input');
+    const passwordSubmit = document.getElementById('password-submit');
+    const passwordError = document.getElementById('password-error');
+    const personalStorySection = document.getElementById('personal-story');
+    const personalStoryLinks = document.querySelectorAll('a[href="#personal-story"]');
+
+    // Check if already unlocked in this session
+    if (sessionStorage.getItem(SESSION_KEY) === 'true') {
+        personalStorySection.classList.remove('hidden');
+    }
+
+    // Handle navigation link clicks
+    personalStoryLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            if (sessionStorage.getItem(SESSION_KEY) === 'true') {
+                // Already unlocked, just scroll
+                personalStorySection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                // Show password modal
+                modal.style.display = 'flex';
+                passwordInput.focus();
+            }
+        });
+    });
+
+    // Handle password submission
+    function checkPassword() {
+        const enteredPassword = passwordInput.value;
+
+        if (enteredPassword === PASSWORD) {
+            // Correct password
+            sessionStorage.setItem(SESSION_KEY, 'true');
+            modal.style.display = 'none';
+            personalStorySection.classList.remove('hidden');
+            personalStorySection.scrollIntoView({ behavior: 'smooth' });
+            passwordInput.value = '';
+            passwordError.textContent = '';
+        } else {
+            // Incorrect password
+            passwordError.textContent = '❌ Incorrect password. Please try again.';
+            passwordInput.value = '';
+            passwordInput.focus();
+        }
+    }
+
+    passwordSubmit.addEventListener('click', checkPassword);
+
+    passwordInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            checkPassword();
+        }
+    });
+
+    // Close modal when clicking outside
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            passwordInput.value = '';
+            passwordError.textContent = '';
         }
     });
 });

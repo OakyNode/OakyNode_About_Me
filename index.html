@@ -12,6 +12,17 @@
 </head>
 
 <body>
+    <!-- Password Modal -->
+    <div id="password-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>🔒 Protected Content</h2>
+            <p>Please enter the password to view my personal story</p>
+            <input type="password" id="password-input" placeholder="Enter password" autocomplete="off">
+            <div id="password-error" class="error-message"></div>
+            <button id="password-submit" class="btn-primary">Unlock</button>
+        </div>
+    </div>
+
     <!-- Animated Background -->
     <div class="background-animation">
         <div class="grid-overlay"></div>
@@ -26,10 +37,16 @@
                 <span class="logo-text">Developer</span>
                 <span class="logo-bracket">/&gt;</span>
             </div>
-            <div class="nav-links">
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <div class="nav-links" id="navLinks">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#tech" class="nav-link">Tech Stack</a>
                 <a href="#projects" class="nav-link">Projects</a>
+                <a href="#personal-story" class="nav-link">Personal Story</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
         </div>
@@ -89,10 +106,6 @@
                         <div class="stat-label">Production Projects</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Server Management</div>
-                    </div>
-                    <div class="stat-card">
                         <div class="stat-number">100%</div>
                         <div class="stat-label">AI-Enhanced Workflow</div>
                     </div>
@@ -114,35 +127,37 @@
                     <h3 class="tech-category-title">Code</h3>
                     <ul class="tech-list">
                         <li><span class="tech-dot"></span>Python</li>
-                        <li><span class="tech-dot"></span>React</li>
+                        <li><span class="tech-dot"></span>React & Next.js</li>
                         <li><span class="tech-dot"></span>Bash (terminal work)</li>
                     </ul>
                 </div>
                 <div class="tech-category">
                     <div class="tech-category-icon">🖥️</div>
-                    <h3 class="tech-category-title">Servers</h3>
+                    <h3 class="tech-category-title">Infrastructure</h3>
                     <ul class="tech-list">
+                        <li><span class="tech-dot"></span>PM2 (Process Management)</li>
+                        <li><span class="tech-dot"></span>Nginx (Reverse Proxy)</li>
                         <li><span class="tech-dot"></span>DigitalOcean Droplets</li>
-                        <li><span class="tech-dot"></span>Nginx</li>
-                        <li><span class="tech-dot"></span>Systemd</li>
-                        <li><span class="tech-dot"></span>Cron jobs</li>
+                        <li><span class="tech-dot"></span>SSL & DNS Management</li>
                     </ul>
                 </div>
                 <div class="tech-category">
                     <div class="tech-category-icon">🤖</div>
-                    <h3 class="tech-category-title">AI & API</h3>
+                    <h3 class="tech-category-title">Automation</h3>
                     <ul class="tech-list">
-                        <li><span class="tech-dot"></span>Windsurf (early adopter)</li>
-                        <li><span class="tech-dot"></span>VAPI & Twilio (voice AI)</li>
-                        <li><span class="tech-dot"></span>Telegram bots</li>
+                        <li><span class="tech-dot"></span>GHL (GoHighLevel) Webhooks</li>
+                        <li><span class="tech-dot"></span>VAPI & Twilio (Voice AI)</li>
+                        <li><span class="tech-dot"></span>REST APIs & Integration</li>
+                        <li><span class="tech-dot"></span>Telegram Lead Bots</li>
                     </ul>
                 </div>
                 <div class="tech-category">
-                    <div class="tech-category-icon">💰</div>
-                    <h3 class="tech-category-title">Finance</h3>
+                    <div class="tech-category-icon">📊</div>
+                    <h3 class="tech-category-title">Systems</h3>
                     <ul class="tech-list">
-                        <li><span class="tech-dot"></span>VALR API</li>
-                        <li><span class="tech-dot"></span>Binance API</li>
+                        <li><span class="tech-dot"></span>Systemd & Cron Jobs</li>
+                        <li><span class="tech-dot"></span>Real-time PNL Data</li>
+                        <li><span class="tech-dot"></span>Exchange APIs (VALR/Binance)</li>
                     </ul>
                 </div>
             </div>
@@ -165,15 +180,15 @@
                         <span class="project-badge">Featured</span>
                     </div>
                     <p class="project-description">
-                        Built a system with a partner that could deploy a huge amount of websites automatically. Managed
-                        everything through the terminal on servers across Amsterdam and New York. Set up AI outbound
-                        calling and Telegram bots to handle the leads.
+                        Designed a high-scale automation pipeline that deploys and manages hundreds of websites.
+                        Orchestrated 8+ PM2 services and 80+ Python scripts for real-time lead generation, GHL
+                        integration, and AI voice outbound calling.
                     </p>
                     <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Server Management</span>
-                        <span class="tag">AI Voice</span>
-                        <span class="tag">Telegram Bots</span>
+                        <span class="tag">Next.js</span>
+                        <span class="tag">PM2 Orchestration</span>
+                        <span class="tag">Nginx Reverse Proxy</span>
+                        <span class="tag">GHL Sync</span>
                     </div>
                 </div>
 
@@ -268,6 +283,62 @@
         </div>
     </section>
 
+    <!-- Personal Story Section -->
+    <section id="personal-story" class="section personal-story-section hidden">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// My Journey</span>
+                <h2 class="section-title">Personal Story</h2>
+            </div>
+
+            <div class="story-content">
+                <div class="story-block">
+                    <h3>Where I Started</h3>
+                    <p>I grew up in Pretoria and went to <strong>Pretoria Boys High School</strong>. That foundation set
+                        me up for everything that came later.</p>
+                </div>
+
+                <div class="story-block">
+                    <h3>🏒 International Ice Hockey</h3>
+                    <p>I completed <strong>6 world championship tours</strong> between 2015-2019, specifically competing
+                        in the <strong>U18 & U20 IIHF Ice Hockey World Champs</strong> across the globe.</p>
+                </div>
+
+                <div class="story-block">
+                    <h3>🎬 ON-SET Studios</h3>
+                    <p>For the past <strong>3 years</strong>, I've been running my record label, <strong>ON-SET
+                            Studios</strong>. We handle shows, music production, and more. What started as a passion
+                        project has grown into a thriving business,
+                        allowing me to combine creativity with entrepreneurship.</p>
+                </div>
+
+                <div class="story-block">
+                    <h3>💼 Business Ventures</h3>
+                    <p>Beyond media production, I've explored various entrepreneurial paths:</p>
+                    <ul>
+                        <li><strong>RoyalSmoke Exclusive Cigars</strong> - A premium cigar business catering to
+                            discerning clientele</li>
+                        <li><strong>Retail Experience</strong> - Hands-on experience in customer service and business
+                            operations</li>
+                    </ul>
+                </div>
+
+                <div class="story-block">
+                    <h3>📚 Continuous Learning</h3>
+                    <p>I completed the <strong>HarvardX Business Entrepreneurship</strong> course, furthering my
+                        understanding of business strategy, innovation, and startup development.</p>
+                </div>
+
+                <div class="story-block">
+                    <h3>Looking Forward</h3>
+                    <p>Each experience has shaped who I am today - from the ice rink to the boardroom, from creative
+                        projects to business ventures. I'm constantly seeking new challenges and opportunities to grow.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Personal Business Section -->
     <section class="section section-dark" id="business">
         <div class="container">
@@ -277,8 +348,8 @@
             </div>
             <div class="business-content">
                 <p class="business-description">
-                    This is my recording studio and the base for my music career as <strong>Mr. Mystery</strong>. I run
-                    the business and handle all the production.
+                    This is my <strong>record label</strong> and the base for my music career. I manage shows, handle
+                    all music production, and run the business operations.
                 </p>
             </div>
         </div>
